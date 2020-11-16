@@ -1,0 +1,47 @@
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: text;
+}
+
+.html {
+  font-size: 12px;
+}
+
+.container {
+  padding: 0 15rem;
+}
+
+.question {
+  background-color: #222;
+  color: white;
+  font-size: 3rem;
+  padding: 4rem;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.answer {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.answer div {
+  font-size: 2.5rem;
+  color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  line-height: 4rem;
+  width: 300px;
+  text-align: center;
+}
+
+#yes {
+  background-color: #4fc92a;
+}
+
+#no {
+  background-color: #eb4034;
+}

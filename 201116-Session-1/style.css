@@ -1,0 +1,7 @@
+#my-paragraph {
+  color: red;
+}
+/* css has a grading system, id: 100 pts, class: 10 pts, p/h1/a: 1 pt. whichever has the most points is used */
+.color-blue {
+  color: blue;
+}
