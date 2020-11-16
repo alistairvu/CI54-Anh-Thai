@@ -63,7 +63,7 @@ const findEvenArrayLoop = (inputArray) => {
 }
 
 console.log(...findEvenArrayLoop(inputArray))
-console.log(inputArray.sort((a, b) => b - a))
+console.log(...inputArray.sort((a, b) => b - a))
 
 // Exercise 4*: find the even numbers in an array, no loops!
 const findEvenArray = (inputArray) => inputArray.filter((x) => x % 2 === 0)
