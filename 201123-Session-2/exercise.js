@@ -34,3 +34,19 @@ const snake = new Animal("snake", "black", 0, "f", "Susan")
 snake.isDangerous()
 const cat = new Animal("cat", "black", 4, "f", "Lola")
 cat.isDangerous()
+
+// class Dog extends Animal
+
+class Dog extends Animal {
+  constructor(colour, gender, name) {
+    super("dog", colour, 4, gender, name)
+  }
+
+  speak() {
+    console.log(`${this.name} says "Woof Woof!"`)
+  }
+}
+
+const myDog = new Dog("white", "female", "Gureum")
+console.log(myDog)
+myDog.speak()
