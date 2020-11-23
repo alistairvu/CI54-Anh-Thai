@@ -44,3 +44,7 @@ a {
 #no {
   background-color: #eb4034;
 }
+
+.row-reverse {
+  flex-direction: row-reverse;
+}
