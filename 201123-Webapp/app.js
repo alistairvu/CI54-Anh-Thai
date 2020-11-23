@@ -38,3 +38,20 @@ class User {
     `
   }
 }
+
+// A collection of users
+class UserCollection {
+  userList
+
+  constructor() {
+    this.userList = []
+  }
+
+  addUser(user) {
+    this.userList.push(user)
+  }
+
+  removeUser(index) {
+    this.userList.splice(index, 1)
+  }
+}
