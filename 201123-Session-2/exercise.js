@@ -48,5 +48,4 @@ class Dog extends Animal {
 }
 
 const myDog = new Dog("white", "female", "Gureum")
-console.log(myDog)
 myDog.speak()
