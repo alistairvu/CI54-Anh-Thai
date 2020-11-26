@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+card-container {
+  max-width: 30%;
+  padding-right: 10%;
+  justify-content: center;
+}
