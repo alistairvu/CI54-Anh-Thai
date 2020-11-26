@@ -1,61 +1,5 @@
-class Student {
-  name
-  age
-  placeOfBirth
-
-  constructor(name, age, placeOfBirth) {
-    this.name = name
-    this.age = age
-    this.placeOfBirth = placeOfBirth
-  }
-
-  showData() {
-    console.log(`
-Name: ${this.name}
-Age: ${this.age}
-Born in: ${this.placeOfBirth}\n`)
-  }
-}
-
-class StudentClass {
-  studentList
-
-  constructor() {
-    this.studentList = []
-  }
-
-  showClass() {
-    this.studentList.map((student) => student.showData())
-    console.log("----------")
-  }
-
-  addStudent(student) {
-    this.studentList.push(student)
-  }
-
-  findFifteen() {
-    this.studentList
-      .filter((student) => student.age === 15)
-      .map((student) => student.showData())
-    console.log("----------")
-  }
-
-  findEighteenHanoi() {
-    this.studentList
-      .filter(
-        (student) => student.age === 18 && student.placeOfBirth === "Hanoi"
-      )
-      .map((student) => student.showData())
-    console.log("----------")
-  }
-
-  findName(name) {
-    this.studentList
-      .filter((student) => student.name === name)
-      .map((student) => student.showData())
-    console.log("----------")
-  }
-}
+import Student from "./student.js"
+import StudentClass from "./studentClass.js"
 
 // testing...
 const myStudent1 = new Student("HeeJin", 15, "Seoul")
@@ -68,6 +12,6 @@ const studentClass = new StudentClass()
 studentArr.map((student) => studentClass.addStudent(student))
 
 studentClass.showClass()
-studentClass.findFifteen()
-studentClass.findEighteenHanoi()
+studentClass.findAge(15)
+studentClass.findAgeAndLocation(18, "Hanoi")
 studentClass.findName("ViVi")
