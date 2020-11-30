@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Firebase Debut</title>
+  </head>
+  <body>
+    <form id="form">
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="number" name="age" placeholder="Age" required />
+      <input type="text" name="address" placeholder="Address" required />
+      <input type="text" name="phone" placeholder="Phone" required />
+      <button id="submit-btn">Submit</button>
+    </form>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyA4kDvC2ratCKpYusjAeYBkixPdridE2nk",
+        authDomain: "ci-54-debut-db436.firebaseapp.com",
+        databaseURL: "https://ci-54-debut-db436.firebaseio.com",
+        projectId: "ci-54-debut-db436",
+        storageBucket: "ci-54-debut-db436.appspot.com",
+        messagingSenderId: "68877801486",
+        appId: "1:68877801486:web:c9e2dbf4af1afdea68445f",
+        measurementId: "G-KE8F317FLB",
+      }
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig)
+      firebase.analytics()
+    </script>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
