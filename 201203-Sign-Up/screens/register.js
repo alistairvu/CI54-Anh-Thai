@@ -117,7 +117,7 @@ class RegisterScreen extends HTMLElement {
 
       const checkEmail = await this.checkEmailExists(email)
 
-      if (email.trim().length === 0) {
+      if (!/\S+@\S+\.\S+/.test(email)) {
         this.setError("email", "Please type in a valid email.")
         isValid = false
       } else if (checkEmail) {

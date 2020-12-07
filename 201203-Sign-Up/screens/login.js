@@ -83,6 +83,21 @@ class LoginScreen extends HTMLElement {
 
     const loginForm = this._shadowRoot.getElementById("login-form")
 
+    const savedEmail = localStorage.getItem("email") || ""
+    const savedPassword = localStorage.getItem("password") || ""
+
+    const findAccount = async () => {
+      const res = await collection.where("email", "==", savedEmail).get()
+      const docs = res.docs
+      const doc = docs[0].data()
+      const verify = doc.password === savedPassword
+      console.log(verify)
+    }
+
+    if (this.checkEmailExists(savedEmail)) {
+      console.log(findAccount())
+    }
+
     this._shadowRoot
       .getElementById("redirect")
       .addEventListener("click", () => redirect("register"))
@@ -127,6 +142,12 @@ class LoginScreen extends HTMLElement {
 
       if (verify) {
         alert("Login success")
+        localStorage.setItem("email", email)
+        localStorage.setItem(
+          "password",
+          CryptoJS.MD5(password).toString(CryptoJS.enc.Base64)
+        )
+        redirect("welcome")
       } else {
         this.setError("password", "Wrong password.")
       }
