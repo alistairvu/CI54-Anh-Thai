@@ -56,6 +56,7 @@ button {
 </style>
 `
 import { redirect } from "../index.js"
+import { getDataFromDoc, saveToLocalStorage } from "../utils.js"
 const collection = firebase.firestore().collection("users")
 
 class LoginScreen extends HTMLElement {
@@ -82,21 +83,6 @@ class LoginScreen extends HTMLElement {
       `
 
     const loginForm = this._shadowRoot.getElementById("login-form")
-
-    const savedEmail = localStorage.getItem("email") || ""
-    const savedPassword = localStorage.getItem("password") || ""
-
-    const findAccount = async () => {
-      const res = await collection.where("email", "==", savedEmail).get()
-      const docs = res.docs
-      const doc = docs[0].data()
-      const verify = doc.password === savedPassword
-      console.log(verify)
-    }
-
-    if (this.checkEmailExists(savedEmail)) {
-      console.log(findAccount())
-    }
 
     this._shadowRoot
       .getElementById("redirect")
@@ -136,18 +122,15 @@ class LoginScreen extends HTMLElement {
 
       const res = await collection.where("email", "==", email).get()
       const docs = res.docs
-      const doc = docs[0].data()
+      const doc = docs[0]
+      const user = getDataFromDoc(doc)
       const verify =
-        doc.password === CryptoJS.MD5(password).toString(CryptoJS.enc.Base64)
+        user.password === CryptoJS.MD5(password).toString(CryptoJS.enc.Base64)
 
       if (verify) {
         alert("Login success")
-        localStorage.setItem("email", email)
-        localStorage.setItem(
-          "password",
-          CryptoJS.MD5(password).toString(CryptoJS.enc.Base64)
-        )
-        redirect("welcome")
+        redirect("story")
+        saveToLocalStorage("currentUser", JSON.stringify(user))
       } else {
         this.setError("password", "Wrong password.")
       }

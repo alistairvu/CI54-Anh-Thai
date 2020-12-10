@@ -15,6 +15,9 @@ export const redirect = (screenName) => {
     case "welcome":
       rootElement.innerHTML = `<welcome-screen></welcome-screen>`
       break
+    case "story":
+      rootElement.innerHTML = `THIS IS THE STORY SCREEN`
+      break
     default:
       break
   }
