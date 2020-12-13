@@ -1,5 +1,4 @@
 export const getDataFromDoc = (doc) => {
-  console.log(doc.data())
   return { ...doc.data(), id: doc.id }
 }
 
@@ -17,5 +16,5 @@ export const saveToLocalStorage = (key, value) => {
 }
 
 export const getItemLocalStorage = (key) => {
-  localStorage.getItem(key)
+  return JSON.parse(localStorage.getItem(key))
 }

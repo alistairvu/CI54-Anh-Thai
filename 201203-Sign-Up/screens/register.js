@@ -155,7 +155,7 @@ class RegisterScreen extends HTMLElement {
         email: email,
         password: CryptoJS.MD5(password).toString(CryptoJS.enc.Base64),
         timeStamp: +new Date(),
-        timestampStr: time.toString(),
+        timestampStr: time.toISOString(),
       }
       console.log(newUser)
       // if email exists -> true, alert that email is already in use

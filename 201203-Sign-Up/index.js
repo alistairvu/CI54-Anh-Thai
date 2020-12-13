@@ -1,10 +1,34 @@
 import "./screens/register.js"
 import "./screens/login.js"
-import "./screens/welcome.js"
+import "./screens/story.js"
 import "./components/inputWrapper.js"
+import "../components/storyHeader.js"
+import "../components/createPost.js"
+import { getItemLocalStorage } from "./utils.js"
 const rootElement = document.getElementById("root")
 
-export const redirect = (screenName) => {
+checkAuthen()
+
+async function checkAuthen() {
+  try {
+    const user = getItemLocalStorage("currentUser")
+    const res = await firebase
+      .firestore()
+      .collection("users")
+      .where("email", "==", user.email)
+      .where("password", "==", user.password)
+      .get()
+    if (res.empty) {
+      redirect("login")
+    } else {
+      redirect("story")
+    }
+  } catch (e) {
+    redirect("login")
+  }
+}
+
+export function redirect(screenName) {
   switch (screenName) {
     case "register":
       rootElement.innerHTML = `<register-screen></register-screen>`
@@ -12,17 +36,10 @@ export const redirect = (screenName) => {
     case "login":
       rootElement.innerHTML = `<login-screen></login-screen>`
       break
-    case "welcome":
-      rootElement.innerHTML = `<welcome-screen></welcome-screen>`
-      break
     case "story":
-      rootElement.innerHTML = `THIS IS THE STORY SCREEN`
+      rootElement.innerHTML = `<story-screen></story-screen>`
       break
     default:
       break
   }
 }
-
-rootElement.innerHTML = `
-        <login-screen></login-screen>
-        `
