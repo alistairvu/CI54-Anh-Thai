@@ -18,8 +18,9 @@ class CreatePost extends HTMLElement {
     const postButton = this._shadowRoot.getElementById("post-btn")
     const postContent = this._shadowRoot.getElementById("content")
 
-    postButton.addEventListener("click", () => {
-      const userData = getItemLocalStorage("userData")
+    postButton.addEventListener("click", (e) => {
+      e.preventDefault()
+      const userData = getItemLocalStorage("currentUser")
       const time = new Date()
       const postData = {
         createdAt: time.toISOString(),
