@@ -48,7 +48,7 @@ const styles = `
       }
     </style>`
 
-import { saveToLocalStorage } from "../utils.js"
+import { removeFromLocalStorage } from "../utils.js"
 import { redirect } from "../index.js"
 
 class StoryHeader extends HTMLElement {
@@ -84,7 +84,7 @@ class StoryHeader extends HTMLElement {
     this._shadowRoot
       .getElementById("logout-btn")
       .addEventListener("click", () => {
-        saveToLocalStorage("currentUser", "")
+        removeFromLocalStorage("currentUser")
         redirect("login")
       })
   }
