@@ -20,7 +20,7 @@ class CreatePost extends HTMLElement {
 
     postButton.addEventListener("click", (e) => {
       e.preventDefault()
-      const userData = getItemLocalStorage("currentUser")
+      const userData = getItemLocalStorage("currentUser"j)
       const time = new Date()
       const postData = {
         createdAt: time.toISOString(),
