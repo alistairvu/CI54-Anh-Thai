@@ -15,73 +15,50 @@
       rel="stylesheet"
     />
     <style>
-      .container {
-        background: rgb(228, 184, 169);
-        background: linear-gradient(
-          90deg,
-          rgba(228, 184, 169, 1) 0%,
-          rgba(141, 125, 166, 1) 50%,
-          rgba(94, 139, 195, 1) 100%
-        );
-        display: flex;
-        height: 60px;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 10%;
+      * {
+        margin: 0;
+        padding: 0;
       }
 
-      .logo,
-      .user-info {
-        display: flex;
-        align-items: center;
-      }
-
-      .branch {
-        font-size: 1rem;
-        color: #ffffff;
-        margin-left: 10px;
+      html {
         font-family: "Raleway", sans-serif;
+        font-size: 16px;
+      }
+
+      .list-posts {
+        width: 60%;
+        margin: auto;
+      }
+
+      .post-item {
+        border: 1px solid #dbdbdb;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .author-name {
         font-weight: 600;
       }
 
-      .user-info {
-        font-size: 1.8rem;
-        color: #ffffff;
-      }
-      .btn {
-        background-color: transparent;
-        border: none;
-        margin-left: 20px;
-        font-size: 1.8rem;
-        cursor: pointer;
-        outline: none;
-        color: #ffffff;
+      .time {
+        font-size: 12px;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="logo">
-        <img
-          src="assets/polygon-s-transparent.png"
-          alt=""
-          width="40px"
-          height="40px"
-        />
-        <div class="branch">Share story</div>
-      </div>
-      <div class="user-info">
-        <div class="avatar">
-          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+      <div class="list-posts">
+        <div class="post-item">
+          <div class="author-name">Nguyen Y Van</div>
+          <div class="time">14/12/2020 20:08</div>
+          <div class="content">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit,
+            magnam? Iure error facilis cupiditate quaerat, nesciunt ut cum omnis
+            aliquid sunt, minus in ex repellendus similique? Quasi obcaecati
+            vitae explicabo?
+          </div>
         </div>
-        <button class="btn">
-          <i class="fa fa-sign-out" aria-hidden="true"></i>
-        </button>
       </div>
     </div>
-    <form id="create-post">
-      <textarea name="content" rows="4" id="content"/></textarea>
-      <button id="post-btn">Post</button>
-    </form>
   </body>
 </html>

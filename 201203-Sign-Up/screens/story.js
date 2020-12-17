@@ -7,7 +7,8 @@ class StoryScreen extends HTMLElement {
   connectedCallback() {
     this._shadowRoot.innerHTML = `
     <story-header></story-header>
-    <create-post></create-post>`
+    <create-post></create-post>
+    <list-post></list-post>  `
   }
 }
 

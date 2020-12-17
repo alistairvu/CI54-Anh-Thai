@@ -42,26 +42,30 @@ class CreatePost extends HTMLElement {
     </form>
       `
 
-    const postButton = this._shadowRoot.getElementById("post-btn")
-    const postContent = this._shadowRoot.getElementById("content")
+    const postForm = this._shadowRoot.getElementById("create-post")
 
-    postButton.addEventListener("click", () => {
-      if (postContent.value.length > 0) {
-        const userData = getItemLocalStorage("currentUser")
-        const time = new Date()
-        const postData = {
-          createdAt: time.toISOString(),
-          createdBy: userData.id,
-          createdName: userData.name,
-          content: postContent.value,
-          isShown: true,
-        }
-        collection.add(postData)
-        alert("Post added!")
-      } else {
-        alert("Post empty!")
+    postForm.addEventListener("submit", this.uploadPost)
+  }
+
+  uploadPost(e) {
+    e.preventDefault()
+    const content = e.target.content.value
+    if (content.trim() === "") {
+      alert("Please enter something in the input form!")
+    } else {
+      const user = getItemLocalStorage("currentUser")
+      const data = {
+        createdBy: user.id,
+        createdAt: new Date().toISOString(),
+        createdRaw: new Date(),
+        authorName: user.name,
+        content: content,
+        comments: [],
+        isShown: true,
       }
-    })
+      collection.add(data)
+      e.target.reset()
+    }
   }
 }
 
